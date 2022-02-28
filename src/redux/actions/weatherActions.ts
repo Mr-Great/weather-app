@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '../store';
 import {
@@ -6,7 +7,6 @@ import {
   WeatherAction,
   WeatherResponse,
 } from '../../interfaces/weather';
-import axios from 'axios';
 
 const defaultWoeid: number = 638242;
 

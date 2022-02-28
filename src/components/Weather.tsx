@@ -14,7 +14,13 @@ const Weather: FC<WeatherProps> = ({ data }) => {
 
   weatherReport.map((weather) => {
     if (weather.applicable_date === currentDate) {
-      details.push(<WeatherDetails key={weather.id} weather={weather} />);
+      details.push(
+        <WeatherDetails
+          key={weather.id}
+          weatherIcon={`https://www.metaweather.com/static/img/weather/png/64/${weather.weather_state_abbr}.png`}
+          weather={weather}
+        />
+      );
     }
     return details;
   });

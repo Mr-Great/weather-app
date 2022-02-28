@@ -2,10 +2,11 @@ import { FC } from 'react';
 import { WeatherData } from '../interfaces/weather';
 
 interface WeatherDetailsProps {
+  weatherIcon: string;
   weather: WeatherData;
 }
 
-const WeatherDetails: FC<WeatherDetailsProps> = ({ weather }) => {
+const WeatherDetails: FC<WeatherDetailsProps> = ({ weatherIcon, weather }) => {
   const roundUpInfo = (info: number): number => {
     return Math.round(info);
   };
@@ -15,6 +16,9 @@ const WeatherDetails: FC<WeatherDetailsProps> = ({ weather }) => {
 
   return (
     <div>
+      <div>
+        <img src={weatherIcon} className='float-right' alt='' />
+      </div>
       <div className='grid grid-cols-2 gap-4 clear-both'>
         <div className='grid grid-cols-1 gap-2 text-center'>
           <p className='font-bold text-5xl text-amber-500 mb-2'>

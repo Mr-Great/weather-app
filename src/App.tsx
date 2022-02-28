@@ -1,8 +1,8 @@
 import { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
-import Weather from './components/Weather';
 import { getWeather, setLoading } from './redux/actions/weatherActions';
+import Weather from './components/Weather';
 
 const App: FC = () => {
   const dispatch = useDispatch();
