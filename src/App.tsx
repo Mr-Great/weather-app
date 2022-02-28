@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 import { getWeather, setLoading } from './redux/actions/weatherActions';
 import Weather from './components/Weather';
+import Search from './components/Search';
 
 const App: FC = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const App: FC = () => {
 
   return (
     <div className='flex flex-col justify-center items-center h-screen'>
+      <Search />
       {loading ? (
         <h3>Loading!!! Waiting for weather report...</h3>
       ) : (
