@@ -1,12 +1,20 @@
 import { FC } from 'react';
 import { WeatherData } from '../interfaces/weather';
+import moment from 'moment';
 
 interface WeatherDetailsProps {
+  day: string;
   weatherIcon: string;
   weather: WeatherData;
+  onHandleForecast: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const WeatherDetails: FC<WeatherDetailsProps> = ({ weatherIcon, weather }) => {
+const WeatherDetails: FC<WeatherDetailsProps> = ({
+  day,
+  weatherIcon,
+  weather,
+  onHandleForecast,
+}) => {
   const roundUpInfo = (info: number): number => {
     return Math.round(info);
   };
@@ -25,6 +33,17 @@ const WeatherDetails: FC<WeatherDetailsProps> = ({ weatherIcon, weather }) => {
             {roundUpInfo(weather.the_temp)}&deg;C
           </p>
           <p className='text-gray-600 text-3xl'>{weather.weather_state_name}</p>
+          <p className='text-gray-400 text-md'>
+            {moment(weather.applicable_date, 'YYYY-MM-DD').format(
+              'dddd MMM YYYY'
+            )}
+          </p>
+          <button
+            className='bg-blue-500 hover:bg-blue-700 text-sm text-white py-2 px-4 rounded-full'
+            onClick={onHandleForecast}
+          >
+            {day}
+          </button>
         </div>
         <div className='grid grid-cols-1 gap-2 my-2 border-l-2 border-gray-200 px-4'>
           <p className='col-end-2 text-gray-500'>
