@@ -21,7 +21,9 @@ const Weather: FC<WeatherProps> = ({ data }) => {
 
   return (
     <div>
-      <h1>Today's weather report in {title}</h1>
+      <h1 className='text-center text-2xl py-4'>
+        Today's weather report in {title}
+      </h1>
       <div className='max-w-md bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4'>
         {details}
       </div>

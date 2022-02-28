@@ -15,7 +15,7 @@ const App: FC = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center h-screen'>
       {loading ? (
         <h3>Loading!!! Waiting for weather report...</h3>
       ) : (
