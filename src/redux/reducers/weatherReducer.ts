@@ -4,6 +4,7 @@ import {
   WeatherAction,
   GET_WEATHER,
   SET_LOADING,
+  SET_ERROR,
 } from '../../interfaces/weather';
 
 const initialState: WeatherState = {
@@ -27,6 +28,12 @@ const weatherReducer: Reducer<WeatherState, WeatherAction> = (
       return {
         ...state,
         loading: true,
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
     default:
       return state;

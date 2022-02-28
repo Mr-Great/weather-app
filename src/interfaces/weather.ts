@@ -1,5 +1,6 @@
 export const GET_WEATHER = 'GET_WEATHER';
 export const SET_LOADING = 'SET_LOADING';
+export const SET_ERROR = 'SET_ERROR';
 
 export interface WeatherData {
   id: number;
@@ -63,4 +64,11 @@ interface SetLoadingAction {
   type: typeof SET_LOADING;
 }
 
-export type WeatherAction = GetWeatherAction | SetLoadingAction;
+interface SetErrorAction {
+  type: typeof SET_ERROR;
+  payload: string;
+}
+export type WeatherAction =
+  | GetWeatherAction
+  | SetLoadingAction
+  | SetErrorAction;
